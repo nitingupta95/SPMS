@@ -47,13 +47,19 @@ A powerful dashboard to track and analyze student performance on Codeforces comp
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/codeforces-student-tracker.git
-cd codeforces-student-tracker
+git clone https://github.com/nitingupta95/SPMS;
+cd SPMS
 
 # Install dependencies
+cd backend/src/prisma && npx prisma migrate dev
 cd backend && npm install
 cd ../frontend && npm install
 
 # Set up environment variables
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
+cd backend/.env.
+ 
+DATABASE_URL= "your_database_url"
+REMINDER_EMAIL=""
+REMINDER_PASS=""
+
+JWT_SECRET=""
