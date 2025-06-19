@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+ 
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id     String  @id @default(uuid())  
+  username  String 
+  email     String  @unique
+  password  String
+} 
+
+
+model Student {
+  id              String    @id @default(uuid())
+  name            String
+  email           String    @unique
+  phoneNumber     String
+  codeforcesHandle String   @unique
+  currentRating   Int       @default(0)
+  maxRating       Int       @default(0)
+  lastSyncedAt    DateTime? 
+  inactiveReminders Int     @default(0)
+  emailRemindersEnabled Boolean @default(true)
+
+  contestHistories ContestHistory[]
+  submissions       Submission[]
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model ContestHistory {
+  id           String   @id @default(uuid())
+  studentId    String
+  contestName  String
+  contestId    Int
+  rank         Int
+  oldRating    Int
+  newRating    Int
+  ratingChange Int
+  date         DateTime
+
+  student      Student  @relation(fields: [studentId], references: [id])
+}
+
+model Submission {
+  id           String   @id @default(uuid())
+  studentId    String
+  problemName  String
+  problemRating Int?
+  verdict      String
+  timestamp    DateTime
+  isSolved     Boolean  @default(false)
+
+  student      Student  @relation(fields: [studentId], references: [id])
+}
