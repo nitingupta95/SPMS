@@ -1,6 +1,6 @@
 # Codeforces Student Tracker 🚀
 
-![Dashboard Preview](https://i.imgur.com/JQZ1l7a.png) <!-- Replace with actual screenshot -->
+![Dashboard Preview](https://res.cloudinary.com/draw-app/image/upload/v1750327297/Screenshot_2025-06-19_153023_dt9xy7.png) <!-- Replace with actual screenshot -->
 
 A powerful dashboard to track and analyze student performance on Codeforces competitive programming platform with rich visualizations and automatic data synchronization.
 
