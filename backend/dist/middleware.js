@@ -10,7 +10,7 @@ function authenticateToken(req, res, next) {
     const token = req.headers['token'];
     if (!token) {
         res.status(401).json({ message: 'Token missing' });
-        return; // ✅ just return here, don't return res.status(...)
+        return;
     }
     try {
         const decoded = jsonwebtoken_1.default.verify(token, JWT_SECRET);

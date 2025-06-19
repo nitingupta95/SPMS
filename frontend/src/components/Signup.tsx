@@ -72,6 +72,7 @@ export const Signup: React.FC = () => {
     localStorage.setItem("id", res.data.id);
     // ✅ Navigate to home/dashboard
     toast.success("Event has been created.")
+    window.dispatchEvent(new Event("storage"));
     navigate("/");
 
     

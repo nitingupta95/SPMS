@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-console.log("DATABASE_URL =", process.env.DATABASE_URL);
+// console.log("DATABASE_URL =", process.env.DATABASE_URL);
 
 import express from "express";  
 import type { Request, Response } from "express"
@@ -157,6 +157,8 @@ app.delete("/api/student/:id",authenticateToken, async (req: Request, res: Respo
   const { id } = req.params;
 
   try {
+    await client.contestHistory.deleteMany({ where: { studentId: id } });
+    await client.submission.deleteMany({ where: { studentId: id } });
     await client.student.delete({
       where: { id },
     });
@@ -232,15 +234,6 @@ app.post('/api/contact', async (req: Request, res: Response): Promise<any> => {
 
 
 
-
-
-
-
-
-
-
- 
-
 app.get("/api/sync/:handle",authenticateToken, async (req: Request, res: Response): Promise<any> => {
   const handle = req.params.handle;
 
@@ -312,6 +305,15 @@ app.get("/api/sync/:handle",authenticateToken, async (req: Request, res: Respons
     return res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+
+
+
+
+
+ 
+
+
 
 
 

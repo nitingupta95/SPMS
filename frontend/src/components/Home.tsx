@@ -9,7 +9,7 @@ export default function Home() {
 
     const headers = Object.keys(data[0]);
     const csvRows = [
-      headers.join(","), // header row
+      headers.join(","), 
       ...data.map(row => headers.map(field => JSON.stringify(row[field] ?? "")).join(","))
     ];
     

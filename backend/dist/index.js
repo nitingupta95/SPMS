@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-console.log("DATABASE_URL =", process.env.DATABASE_URL);
+// console.log("DATABASE_URL =", process.env.DATABASE_URL);
 const express_1 = __importDefault(require("express"));
 const node_fetch_1 = __importDefault(require("node-fetch"));
 const index_1 = require("./prisma/index");
@@ -130,6 +130,8 @@ app.put("/api/student/:id", middleware_1.authenticateToken, (req, res) => __awai
 app.delete("/api/student/:id", middleware_1.authenticateToken, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     try {
+        yield index_1.client.contestHistory.deleteMany({ where: { studentId: id } });
+        yield index_1.client.submission.deleteMany({ where: { studentId: id } });
         yield index_1.client.student.delete({
             where: { id },
         });

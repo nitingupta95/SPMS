@@ -1,4 +1,4 @@
-// middleware/authMiddleware.ts
+ 
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
@@ -14,7 +14,7 @@ export function authenticateToken(req: AuthenticatedRequest, res: Response, next
 
   if (!token) {
     res.status(401).json({ message: 'Token missing' });
-    return; // ✅ just return here, don't return res.status(...)
+    return; 
   }
 
   try {

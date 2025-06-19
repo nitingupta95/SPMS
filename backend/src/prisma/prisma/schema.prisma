@@ -34,7 +34,7 @@ model Student {
   inactiveReminders Int     @default(0)
   emailRemindersEnabled Boolean @default(true)
 
-  contestHistories ContestHistory[]
+  contestHistories ContestHistory[]     
   submissions       Submission[]
 
   createdAt       DateTime  @default(now())

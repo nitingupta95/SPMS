@@ -5,11 +5,7 @@ import {
   RefreshCw, 
   Bell, 
   Target, 
-  Mail, 
-//   TrendingUp,
-//   Award,
-//   Calendar,
-//   Download
+  Mail
 } from 'lucide-react';
 
 function About() {
