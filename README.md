@@ -14,9 +14,7 @@ A powerful full-stack web application to track and analyze student performance o
 - [Database Schema](#-database-schema)
 - [Installation](#-installation)
 - [Environment Variables](#-environment-variables)
-- [Running the App](#-running-the-app)
-- [Docker Setup](#-docker-setup)
-- [Screenshots](#-screenshots)
+- [Running the App](#-running-the-app)  
 - [Future Improvements](#-future-improvements)
 - [License](#-license)
 - [Contact](#-contact)
@@ -56,16 +54,13 @@ A powerful full-stack web application to track and analyze student performance o
 
 ## 🏗 Architecture
 Frontend (React + Vite + Recharts)
-|
-|-- Axios Calls
+-- Axios Calls
 ↓
 Backend (Express.js + Prisma + JWT)
-|
-|-- Prisma ORM
+-- Prisma ORM
 ↓
 Database (PostgreSQL / SQLite)
-|
-|-- Cron Sync (Student <-> Codeforces API)
+ -- Cron Sync (Student <-> Codeforces API)
 
 
 ---
@@ -108,19 +103,19 @@ model Student {
   emailRemindersEnabled   Boolean  @default(true)
 }
 ```
-
-📦 Installation
+---
+##📦 Installation
 ✅ Prerequisites
 Node.js (v16+)
 npm (v8+)
 PostgreSQL (or SQLite for local setup)
 
-🔧 Setup# Clone the repository
+###🔧 Setup# Clone the repository
 ```
 git clone https://github.com/nitingupta95/SPMS
 cd SPMS
 ```
-⚙️ Environment Variables
+###⚙️ Environment Variables
 Create a .env file inside the /backend directory with the following:
 ```
 DATABASE_URL="your_postgres_or_sqlite_connection_string"
@@ -128,8 +123,8 @@ REMINDER_EMAIL="your_email@gmail.com"
 REMINDER_PASS="your_email_password_or_app_password"
 JWT_SECRET="your_jwt_secret_key"
  ```
-#▶️ Running the App
-#Backend
+###▶️ Running the App
+Backend
 ```
 cd backend
 npm install
@@ -141,31 +136,26 @@ npm start
 ```
  
  
-#Frontend
+Frontend
 ```
 cd frontend
 npm install
 npm run dev
 ```
-📌 Future Improvements
- Add charts comparing students in a leaderboard
-
- Telegram/Slack alerts for new contests
-
- Daily/Weekly performance digests
-
- Integration with LeetCode, AtCoder
-
- Admin dashboard for managing multiple cohorts
-
- Historical rating recovery and contest import
-
- 📜 License
+---
+##📌 Future Improvements
+ - Add charts comparing students in a leaderboard
+ - Telegram/Slack alerts for new contests
+ - Daily/Weekly performance digests
+ - Integration with LeetCode, AtCoder
+ - Admin dashboard for managing multiple cohorts
+ - Historical rating recovery and contest import
+---
+ ##📜 License
 MIT License © nitingupta95
-
-📫 Contact
+---
+###📫 Contact
 Feel free to connect:
-
+---
 GitHub: @nitingupta95
-
 Email: ng61315@gmail.com
