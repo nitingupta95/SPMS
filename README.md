@@ -107,7 +107,7 @@ model Student {
   inactiveReminders       Int      @default(0)
   emailRemindersEnabled   Boolean  @default(true)
 }
-
+```
 
 📦 Installation
 ✅ Prerequisites
@@ -134,27 +134,22 @@ JWT_SECRET="your_jwt_secret_key"
 
 JWT_SECRET="your_jwt_secret_key"
 ▶️ Running the App
-Backend
-bash
-Copy
-Edit
+###Backend
 cd backend
 npm install
-
 # Apply Prisma migrations
 cd src/prisma
 npx prisma migrate dev
 cd ../../
+npm start
 
-# Run server
-npm run dev
-Frontend
-bash
-Copy
-Edit
+ 
+ 
+###Frontend
 cd frontend
 npm install
 npm run dev
+
 📌 Future Improvements
  Add charts comparing students in a leaderboard
 
