@@ -157,6 +157,6 @@ MIT License © nitingupta95
 📫 Contact
 Feel free to connect:
 ---
-GitHub: @nitingupta95
----
-Email: ng61315@gmail.com
+<p className="text-base font-normal"><strong>GitHub:</strong> @nitingupta95</p>
+<p className="text-base font-normal"><strong>Email:</strong> ng61315@gmail.com</p>
+
