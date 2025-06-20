@@ -153,7 +153,7 @@ npm run dev
 MIT License © nitingupta95
 ---
 ## 📫 Contact Feel free to connect:
----
+ 
 <p className="text-3xl font-normal"><strong>GitHub:</strong> @nitingupta95</p>
 <p className="text-[45px] font-normal"><strong>Email:</strong> ng61315@gmail.com</p>
-
+---
