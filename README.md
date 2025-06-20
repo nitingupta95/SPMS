@@ -112,29 +112,25 @@ model Student {
 📦 Installation
 ✅ Prerequisites
 Node.js (v16+)
-
 npm (v8+)
-
 PostgreSQL (or SQLite for local setup)
 
 🔧 Setup# Clone the repository
+```
 git clone https://github.com/nitingupta95/SPMS
 cd SPMS
+```
 ⚙️ Environment Variables
 Create a .env file inside the /backend directory with the following:
-
-env
-Copy
-Edit
+```
 DATABASE_URL="your_postgres_or_sqlite_connection_string"
 REMINDER_EMAIL="your_email@gmail.com"
 REMINDER_PASS="your_email_password_or_app_password"
 JWT_SECRET="your_jwt_secret_key"
-
-
-JWT_SECRET="your_jwt_secret_key"
-▶️ Running the App
-###Backend
+ ```
+#▶️ Running the App
+#Backend
+```
 cd backend
 npm install
 # Apply Prisma migrations
@@ -142,14 +138,15 @@ cd src/prisma
 npx prisma migrate dev
 cd ../../
 npm start
-
+```
  
  
-###Frontend
+#Frontend
+```
 cd frontend
 npm install
 npm run dev
-
+```
 📌 Future Improvements
  Add charts comparing students in a leaderboard
 
