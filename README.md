@@ -104,18 +104,18 @@ model Student {
 }
 ```
 ---
-##📦 Installation
+## 📦 Installation
 ✅ Prerequisites
 Node.js (v16+)
 npm (v8+)
 PostgreSQL (or SQLite for local setup)
 
-###🔧 Setup# Clone the repository
+### 🔧 Setup# Clone the repository
 ```
 git clone https://github.com/nitingupta95/SPMS
 cd SPMS
 ```
-###⚙️ Environment Variables
+### ⚙️ Environment Variables
 Create a .env file inside the /backend directory with the following:
 ```
 DATABASE_URL="your_postgres_or_sqlite_connection_string"
@@ -123,7 +123,7 @@ REMINDER_EMAIL="your_email@gmail.com"
 REMINDER_PASS="your_email_password_or_app_password"
 JWT_SECRET="your_jwt_secret_key"
  ```
-###▶️ Running the App
+### ▶️ Running the App
 Backend
 ```
 cd backend
@@ -143,7 +143,7 @@ npm install
 npm run dev
 ```
 ---
-##📌 Future Improvements
+## 📌 Future Improvements
  - Add charts comparing students in a leaderboard
  - Telegram/Slack alerts for new contests
  - Daily/Weekly performance digests
@@ -151,11 +151,12 @@ npm run dev
  - Admin dashboard for managing multiple cohorts
  - Historical rating recovery and contest import
 ---
- ##📜 License
+📜 License
 MIT License © nitingupta95
 ---
-###📫 Contact
+📫 Contact
 Feel free to connect:
 ---
 GitHub: @nitingupta95
+---
 Email: ng61315@gmail.com
