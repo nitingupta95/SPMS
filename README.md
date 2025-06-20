@@ -12,9 +12,7 @@ A powerful full-stack web application to track and analyze student performance o
 - [Architecture](#-architecture)
 - [Tech Stack](#-tech-stack)
 - [Database Schema](#-database-schema)
-- [Installation](#-installation)
-- [Environment Variables](#-environment-variables)
-- [Running the App](#-running-the-app)  
+- [Installation](#-installation) 
 - [Future Improvements](#-future-improvements)
 - [License](#-license)
 - [Contact](#-contact)
@@ -151,12 +149,12 @@ npm run dev
  - Admin dashboard for managing multiple cohorts
  - Historical rating recovery and contest import
 ---
-📜 License
+## 📜 License
 MIT License © nitingupta95
 ---
-📫 Contact
+## 📫 Contact
 Feel free to connect:
 ---
-<p className="text-base font-normal"><strong>GitHub:</strong> @nitingupta95</p>
-<p className="text-base font-normal"><strong>Email:</strong> ng61315@gmail.com</p>
+<p className="text-[25px] font-normal"><strong>GitHub:</strong> @nitingupta95</p>
+<p className="text-[45px] font-normal"><strong>Email:</strong> ng61315@gmail.com</p>
 
