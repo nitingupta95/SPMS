@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
+// console.log("DATABASE_URL =", process.env.DATABASE_URL);
 
-import express from "express";
-import type { Request, Response } from "express";
+import express from "express";  
+import type { Request, Response } from "express"
 import fetch from "node-fetch";
 import { client } from "./prisma/index";
 import { startCron } from "./cron";
@@ -10,22 +11,18 @@ import cors from "cors";
 import nodemailer from "nodemailer";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { authenticateToken, AuthenticatedRequest } from "./middleware";
-import serverless from "serverless-http";
-
-const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
-
+const JWT_SECRET="hi_there_my_name_is_nitin_gupta"
+import { authenticateToken, AuthenticatedRequest } from "./middleware"
 const app = express();
 app.use(express.json());
-
-startCron(); 
-
-const corsOrigin = {
-  origin: 'http://localhost:5173',
-  credentials: true,
-  optionSuccessStatus: 200
-};
+startCron();
+const corsOrigin ={
+    origin:'http://localhost:5173',  
+    credentials:true,            
+    optionSuccessStatus:200
+}
 app.use(cors(corsOrigin));
+
 
  
  
@@ -347,10 +344,7 @@ app.patch('/api/student/:id/toggle-reminder', async (req: Request, res: Response
 
 
 
-// app.listen(3000, () => {
-//   console.log("Server running on port 3000");
-// });
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
  
-
-
-export const handler = serverless(app);

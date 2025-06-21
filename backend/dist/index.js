@@ -16,7 +16,7 @@ const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const middleware_1 = require("./middleware");
 const serverless_http_1 = __importDefault(require("serverless-http"));
-const JWT_SECRET = process.env.JWT_SECRET || "default_secret";
+const JWT_SECRET = process.env.JWT_SECRET || "hi_there_my_name_is_nitin_gupta";
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 (0, cron_1.startCron)();
