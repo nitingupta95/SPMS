@@ -172,7 +172,7 @@ function EditStudent() {
       });
       
       if (originalData) {
-        setOriginalData(formattedData => ({
+        setOriginalData(() => ({
           ...formData,
           id: studentId,
           updatedAt: new Date()

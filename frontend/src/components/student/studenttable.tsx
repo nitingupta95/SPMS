@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Pencil, Trash2, Eye } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import {
   AlertDialog,
@@ -48,7 +48,7 @@ interface StudentTableProps {
 
 export function StudentTable({  }: StudentTableProps) {
   const [students, setStudents] = useState<Student[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [deleteTargetId, setDeleteTargetId] = useState<string | null>(null);
   const navigate= useNavigate();
   useEffect(() => {

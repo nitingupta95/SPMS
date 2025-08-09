@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User,Mail, Phone, Code, Star,  TrendingUp, Save, ArrowLeft, AlertCircle, CheckCircle, Bell, BellOff,UserCheck} from 'lucide-react';
+import { User,Mail, Phone, Code, Star,  TrendingUp, Save, ArrowLeft, AlertCircle, CheckCircle, Bell, BellOff} from 'lucide-react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 

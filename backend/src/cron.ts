@@ -57,8 +57,8 @@ async function syncStudent(student: any) {
       }
     })
   ]);
-
-  // Check for inactivity
+ 
+  
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
   const recentActivity = await client.submission.findFirst({
     where: {
@@ -101,9 +101,9 @@ export function startCron() {
       try {
         await syncStudent(student);
       } catch (err) {
-        console.error(`❌ Failed to sync ${student.codeforcesHandle}:`, err);
+        console.error(` Failed to sync ${student.codeforcesHandle}:`, err);
       }
     }
-    console.log('✅ Daily Sync Completed.');
+    console.log(' Daily Sync Completed.');
   });
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  User, Mail, Phone, Code, Star, TrendingUp, Bell, BellOff, 
+  User, Mail, Phone, Code, Bell, BellOff, 
   Calendar, Award, BookOpen, Edit, ArrowLeft, Loader, AlertCircle,
-  RefreshCw, Filter, BarChart2, Clock, Activity, Thermometer, Target,
+  RefreshCw, BarChart2, Clock, Activity, Thermometer, Target,
   CheckCircle
 } from 'lucide-react';
 import axios from "axios";
@@ -276,9 +276,9 @@ function StudentProfile() {
     };
   };
 
-  const ratingProgress = student?.currentRating 
-    ? Math.min(100, (student.currentRating / 4000) * 100) 
-    : 0;
+  // const ratingProgress = student?.currentRating 
+  //   ? Math.min(100, (student.currentRating / 4000) * 100) 
+  //   : 0;
 
   if (isLoading) {
     return <LoadingState />;
@@ -762,7 +762,7 @@ const ProblemSolvingSection: React.FC<ProblemSolvingSectionProps> = ({
                   <YAxis />
                   <Tooltip />
                   <Bar dataKey="count" fill="#8884d8" name="Problems Solved">
-                    {problemData.problemsByRating.map((entry, index) => (
+                    {problemData.problemsByRating.map((_entry, index) => (
                       <Cell 
                         key={`cell-${index}`} 
                         fill={`hsl(${index * 30}, 70%, 50%)`} 

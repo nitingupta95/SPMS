@@ -1,5 +1,4 @@
-import dotenv from 'dotenv';
-dotenv.config();
+
 // console.log("DATABASE_URL =", process.env.DATABASE_URL);
 
 import express from "express";  
@@ -7,12 +6,14 @@ import type { Request, Response } from "express"
 import fetch from "node-fetch";
 import { client } from "./prisma/index";
 import { startCron } from "./cron";
+import dotenv from 'dotenv';
+dotenv.config();
 import cors from "cors";
 import nodemailer from "nodemailer";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 const JWT_SECRET="hi_there_my_name_is_nitin_gupta"
-import { authenticateToken, AuthenticatedRequest } from "./middleware"
+import { authenticateToken } from "./middleware"
 const app = express();
 app.use(express.json());
 startCron();
@@ -43,7 +44,7 @@ app.post('/api/signup', async (req: Request, res: Response):Promise<any> => {
       data: { username, email, password: hashedPassword },
     });
 
-    const token = jwt.sign({ id: newUser.id }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id: newUser.id }, JWT_SECRET, { expiresIn: '24h' });
 
     res.status(201).json({ token, username: newUser.username, id: newUser.id});
   } catch (err: any) {
@@ -55,9 +56,7 @@ app.post('/api/signup', async (req: Request, res: Response):Promise<any> => {
  
 app.post('/api/signin', async (req: Request, res: Response):Promise<any>  => {
   const { email, password } = req.body;
-
   try {
-    
     const user = await client.user.findUnique({ where: { email } });
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
@@ -122,7 +121,7 @@ app.get("/api/student/:id",authenticateToken, async (req: Request, res: Response
       ...student,
       contestHistory: student.contestHistories.map(ch => ({
         ...ch,
-        date: ch.date.toISOString() // Ensure proper date serialization
+        date: ch.date.toISOString() 
       })),
       submissions: student.submissions.map(s => ({
         ...s,

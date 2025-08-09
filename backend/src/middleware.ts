@@ -22,7 +22,7 @@ export function authenticateToken(req: AuthenticatedRequest, res: Response, next
     req.user = { id: decoded.id };
     next();
   } catch (err) {
-    res.status(403).json({ message: 'Invalid or expired token' });
+    res.status(403).json({ message: 'Invalid or expired token', err });
   }
 }
  
