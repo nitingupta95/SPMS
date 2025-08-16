@@ -1,0 +1,46 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Log in to ACR
+        run: |
+          echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_LOGIN_SERVER }} \
+            -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+
+      - name: Build and Push Backend Image
+        run: |
+          docker build -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/backend:latest ./backend
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/backend:latest
+
+      - name: Build and Push Frontend Image
+        run: |
+          docker build -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:latest ./frontend
+          docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:latest
+
+      - name: Deploy Backend to Azure
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: backend-nitin
+          images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/backend:latest
+
+      - name: Deploy Frontend to Azure
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: frontend-nitin
+          images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/frontend:latest
